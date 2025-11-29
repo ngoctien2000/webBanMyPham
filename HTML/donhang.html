@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đơn hàng - The Real Aura</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      /* ===== HEADER ===== */
+
+      .title {
+        background-color: rgb(234, 184, 193);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 15px 20px;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      .title h3 {
+        color: #111;
+        font-weight: bold;
+        font-size: 22px;
+      }
+
+      #text {
+        border-radius: 30px;
+        width: 280px;
+        height: 35px;
+        padding: 5px 15px;
+        border: 1px solid #ccc;
+      }
+
+      #nutTim {
+        border-radius: 30px;
+        padding: 7px 18px;
+        border: 1px solid #111;
+        background-color: white;
+        cursor: pointer;
+        font-size: 15px;
+      }
+
+      #nutTim:hover {
+        background-color: rgb(245, 220, 225);
+      }
+      /* ===== MENU ===== */
+
+      .thanhbar {
+        background-color: rgb(139, 16, 37);
+      }
+
+      .thanhbar ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        list-style: none;
+        padding: 10px 0;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .thanhbar ul li a,
+      .thanhbar select {
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        background-color: rgb(139, 16, 37);
+        border: none;
+        font-size: 16px;
+      }
+      /* ===== CART (ĐƠN HÀNG) ===== */
+
+      .cart-section {
+        width: 100%;
+        max-width: 1000px;
+        margin: 40px auto;
+        padding: 30px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        font-size: 16px;
+      }
+
+      .cart-section h2 {
+        color: #e60073;
+        margin-bottom: 25px;
+        font-size: 22px;
+      }
+
+      .cart-item {
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid #ddd;
+        padding: 15px 0;
+      }
+
+      .cart-item img {
+        width: 100px;
+        height: 100px;
+        border-radius: 8px;
+        margin-right: 15px;
+        object-fit: cover;
+      }
+
+      .cart-details {
+        flex: 1;
+      }
+
+      .cart-details h4 {
+        margin: 0;
+        font-size: 18px;
+        color: #333;
+      }
+
+      .cart-details p {
+        margin: 5px 0;
+        color: #555;
+        font-size: 14px;
+      }
+
+      .cart-actions {
+        font-size: 14px;
+        margin-top: 5px;
+      }
+
+      .cart-actions a {
+        margin-right: 15px;
+        color: #e60073;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      .cart-price,
+      .cart-subtotal {
+        width: 120px;
+        text-align: right;
+        font-weight: bold;
+        color: #e60073;
+      }
+
+      .cart-quantity {
+        width: 80px;
+        text-align: center;
+      }
+
+      .cart-quantity input {
+        width: 50px;
+        padding: 5px;
+        text-align: center;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      .cart-total {
+        margin-top: 20px;
+        font-size: 18px;
+        text-align: right;
+      }
+
+      .cart-total strong {
+        color: #e60073;
+      }
+
+      .cart-buttons {
+        text-align: right;
+        margin-top: 20px;
+      }
+
+      .cart-buttons button {
+        padding: 10px 25px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 16px;
+        transition: 0.2s;
+      }
+
+      .continue {
+        background-color: #ff4d88;
+        color: white;
+      }
+
+      .continue:hover {
+        background-color: #ff1a66;
+      }
+
+      .checkout {
+        background-color: #28a745;
+        color: white;
+      }
+
+      .checkout:hover {
+        background-color: #208838;
+      }
+      /* ===== FOOTER ===== */
+
+      .footer {
+        color: white;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        gap: 40px;
+        font-size: 15px;
+      }
+
+      .footer h3 {
+        color: #ff4d88;
+        margin-bottom: 10px;
+      }
+
+      .footer a {
+        color: #ccc;
+        text-decoration: none;
+        display: block;
+        margin: 6px 0;
+      }
+
+      .footer a:hover {
+        color: red;
+      }
+
+      .footer-bottom {
+        text-align: center;
+        background-color: #111;
+        color: #aaa;
+        padding: 15px;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- HEADER -->
+    <!-- <div class="title">
+        <h3>The Real Aura</h3>
+        <input type="text" id="text" placeholder="Nhập tên sản phẩm" />
+        <button id="nutTim">Tìm kiếm</button>
+    </div> -->
+
+    <!-- MENU -->
+    <!-- <div class="thanhbar">
+        <ul>
+            <li><a href="index.html">Trang chủ</a></li>
+            <li><a href="gioithieu.html">Giới Thiệu</a></li>
+            <li>
+                <select onchange="window.location.href=this.value;">
+          <option value="">Sản phẩm</option>
+          <option value="../HTML/SanPhamBanChay.html">Sản phẩm bán chạy</option>
+          <option value="../HTML/SanPhamKhuyenMai.html">Sản phẩm khuyến mãi</option>
+          <option value="./indexproduct.html">Tất cả sản phẩm</option>
+        </select>
+            </li>
+            <li><a href="lienhe.html">Liên hệ</a></li>
+            <li><a href="blog.html">Tin Tức</a></li>
+        </ul>
+    </div> -->
+    <iframe
+      src="../HTML/nav.html"
+      frameborder="0"
+      width="100%"
+      height="170px"
+    ></iframe>
+
+    <!-- CART -->
+    <div class="cart-section">
+      <h2>Đơn hàng của bạn</h2>
+      <p>Chưa có sản phẩm nào trong giỏ hàng.</p>
+      <div class="cart-buttons">
+        <button class="continue" onclick="window.location.href='index.html'">
+          Tiếp tục mua sắm
+        </button>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <!-- <div class="footer">
+      <div>
+        <h3>The Real Aura</h3>
+        <p>Shop mỹ phẩm The Real Aura</p>
+        <p>Địa chỉ: ...</p>
+        <p>SDT: ...</p>
+      </div>
+      <div>
+        <h3>Chính sách</h3>
+        <a href="huongdan.html">Hướng dẫn mua hàng</a>
+        <a href="chinhsach.html">Chính sách đổi trả</a>
+        <a href="baomat.html">Chính sách bảo mật thông tin</a>
+      </div>
+      <div>
+        <h3>Kết nối với chúng tôi</h3>
+        <p>🌐 Facebook | Gmail</p>
+        <h3>Phương thức thanh toán</h3>
+        <p>Visa | Mastercard | Ngân hàng</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © IUH University - Dự án web cửa hàng mỹ phẩm - Nhóm 5
+    </div> -->
+
+    <div class="footer">
+      <iframe
+        src="../HTML/footer.html"
+        frameborder="0"
+        width="100%"
+        height="300px"
+      ></iframe>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const cartContainer = document.querySelector(".cart-section");
+        let cartList = JSON.parse(localStorage.getItem("cart")) || [];
+
+        function renderCart() {
+          if (cartList.length === 0) {
+            cartContainer.innerHTML = `
+            <h2>Đơn hàng của bạn</h2>
+            <p>Chưa có sản phẩm nào trong giỏ hàng.</p>
+            <div class="cart-buttons">
+              <button class="continue" onclick="window.location.href='index.html'">Tiếp tục mua sắm</button>
+            </div>`;
+            return;
+          }
+
+          let total = 0;
+          let html = `<h2>Đơn hàng của bạn</h2>`;
+
+          cartList.forEach((item, index) => {
+            const subtotal = item.qty * item.price;
+            total += subtotal;
+            html += `
+            <div class="cart-item">
+              <img src="${
+                item.image || "https://via.placeholder.com/100"
+              }" alt="${item.name}">
+              <div class="cart-details">
+                <h4>${item.name}</h4>
+                <p>Mô tả ngắn gọn</p>
+                <div class="cart-actions">
+                  <a href="#" class="remove-btn" data-index="${index}">❌ Xóa</a>
+                </div>
+              </div>
+              <div class="cart-price">${item.price.toLocaleString(
+                "vi-VN"
+              )} đ</div>
+              <div class="cart-quantity"><input type="number" value="${
+                item.qty
+              }" min="1" data-index="${index}"></div>
+              <div class="cart-subtotal">${subtotal.toLocaleString(
+                "vi-VN"
+              )} đ</div>
+            </div>`;
+          });
+
+          html += `
+          <p class="cart-total">Tổng cộng: <strong>${total.toLocaleString(
+            "vi-VN"
+          )} đ</strong></p>
+          <div class="cart-buttons">
+            <button class="continue" onclick="window.location.href='index.html'">Tiếp tục mua sắm</button>
+            <button id="btnCheckout" class="checkout">Thanh toán</button>
+          </div>`;
+
+          cartContainer.innerHTML = html;
+
+          // Nút xóa
+          document.querySelectorAll(".remove-btn").forEach((btn) => {
+            btn.addEventListener("click", (e) => {
+              e.preventDefault();
+              const index = btn.dataset.index;
+              cartList.splice(index, 1);
+              localStorage.setItem("cart", JSON.stringify(cartList));
+              renderCart();
+            });
+          });
+
+          // Thay đổi số lượng
+          document.querySelectorAll(".cart-quantity input").forEach((input) => {
+            input.addEventListener("change", () => {
+              const index = input.dataset.index;
+              let qty = parseInt(input.value);
+              if (qty < 1) qty = 1;
+              cartList[index].qty = qty;
+              localStorage.setItem("cart", JSON.stringify(cartList));
+              renderCart();
+            });
+          });
+
+          // Nút thanh toán
+          const btnCheckout = document.getElementById("btnCheckout");
+          if (btnCheckout) {
+            btnCheckout.addEventListener("click", () => {
+              if (cartList.length === 0) {
+                alert("Giỏ hàng của bạn đang trống!");
+                return;
+              }
+
+              let totalPay = 0;
+              cartList = cartList.map((item) => {
+                const subtotal = item.price * item.qty;
+                totalPay += subtotal;
+                return { ...item, subtotal };
+              });
+
+              localStorage.setItem("cart", JSON.stringify(cartList));
+              localStorage.setItem("total", totalPay);
+              window.location.href = "thanhtoan.html";
+            });
+          }
+        }
+
+        renderCart();
+      });
+    </script>
+  </body>
+</html>

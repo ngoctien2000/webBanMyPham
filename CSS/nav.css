@@ -1,0 +1,83 @@
+/* NAV CSS */
+
+.title {
+  background-image: url("../IMG/header.jpg");
+  opacity: 80%;
+  /* background-color: rgb(234, 184, 193); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 20px;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.title::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(255, 255, 255, 0.5); /* hoặc đổi màu nền tùy bạn */
+  z-index: 0;
+}
+
+.title h3 {
+  position: relative;
+  z-index: 1;
+  font-size: 55px;
+  color: black;
+}
+
+.title h3 {
+  color: #111;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+#text {
+  border-radius: 30px;
+  width: 280px;
+  height: 35px;
+  padding: 5px 15px;
+  border: 1px solid #ccc;
+}
+
+#nutTim {
+  border-radius: 30px;
+  padding: 7px 18px;
+  border: 1px solid #111;
+  background-color: white;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+#nutTim:hover {
+  background-color: rgb(245, 220, 225);
+}
+
+/* ===== MENU ===== */
+
+.thanhbar {
+  background-color: rgb(139, 16, 37);
+  position: relative;
+  z-index: 1000;
+}
+
+.thanhbar ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  padding: 10px 0;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.thanhbar ul li a,
+.thanhbar select {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  background: transparent;
+  border: none;
+  font-size: 16px;
+}

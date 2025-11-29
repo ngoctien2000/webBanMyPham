@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>The Real Aura - Chi tiết</title>
+  <link rel="stylesheet" href="../CSS/style_trangsp.css" />
+  <script src="../SCRIPT/script_trangsp.js" defer></script>
+</head>
+<body>
+  <!-- Header + Menu (same) -->
+  <header>
+    <div class="top-bar">
+      <div class="logo">The Real Aura</div>
+
+      <div class="search-wrap">
+        <input id="header-search" class="search-input" type="text" placeholder="Nhập từ khóa" />
+        <button id="header-search-btn" class="search-btn">Tìm</button>
+      </div>
+    </div>
+
+    <nav class="menu-bar">
+      <ul>
+        <li><a href="index.html">Trang chủ</a></li>
+        <li><a href="#">Giới Thiệu</a></li>
+        <li>
+          <select id="menu-select">
+            <option value="banchay">Sản phẩm bán chạy</option>
+            <option value="khuyenmai">Sản phẩm khuyến mãi</option>
+          </select>
+        </li>
+        <li><a href="#">Liên hệ</a></li>
+        <li><a href="#">Tin Tức</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Chi tiết sản phẩm -->
+  <main class="container">
+    <div id="detail-box" class="detail-box">
+      <img id="detail-img" src="https://via.placeholder.com/300x300" alt="Sản phẩm" />
+      <div class="detail-info">
+        <h2 id="detail-name">Tên sản phẩm</h2>
+        <p id="detail-rating" class="rating">⭐⭐⭐⭐⭐ (120 đánh giá)</p>
+        <p id="detail-price" class="price">0đ</p>
+        <p><strong>Màu sắc:</strong> <span id="detail-color">-</span> | <strong>Thương hiệu:</strong> Real Aura</p>
+
+        <label for="qty">Số lượng:</label>
+        <input id="qty" type="number" min="1" value="1">
+
+        <div class="actions">
+          <button id="add-to-cart" class="btn add">🛒 Thêm vào giỏ</button>
+          <button id="buy-now" class="btn buy">Mua ngay</button>
+        </div>
+
+        <hr>
+        <h3>Mô tả sản phẩm</h3>
+        <p id="detail-desc">Mô tả chi tiết sản phẩm sẽ hiển thị ở đây.</p>
+      </div>
+    </div>
+
+    <h3 class="related-title">Sản phẩm liên quan</h3>
+    <div class="related-list" id="related-list">
+      <!-- populated by script or static below -->
+    </div>
+  </main>
+</body>
+</html>

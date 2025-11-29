@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>The Real Aura - Trang chủ</title>
+    <link rel="stylesheet" href="../CSS/style_trangsp.css" />
+    <script src="../SCRIPT/script_trangsp.js" defer></script>
+  </head>
+  <body>
+    <!-- Header + Menu (giống hình) -->
+    <!-- <header>
+      <div class="top-bar">
+        <div class="logo">The Real Aura</div>
+
+        <div class="search-wrap">
+          <input
+            id="header-search"
+            class="search-input"
+            type="text"
+            placeholder="Nhập từ khóa"
+          />
+          <button id="header-search-btn" class="search-btn">Tìm</button>
+        </div>
+      </div>
+
+      <nav class="menu-bar">
+        <ul>
+          <li><a href="index.html">Trang chủ</a></li>
+          <li><a href="../HTML/gioithieu.html">Giới Thiệu</a></li>
+          <li>
+            <select id="menu-select">
+              <option value="banchay">Sản phẩm bán chạy</option>
+              <option value="khuyenmai">Sản phẩm khuyến mãi</option>
+            </select>
+          </li>
+          <li><a href="#">Liên hệ</a></li>
+          <li><a href="../HTML/blog.html">Tin Tức</a></li>
+        </ul>
+      </nav>
+    </header> -->
+
+    <iframe src="../HTML/nav.html" frameborder="0" width="100%" height="160px"></iframe>
+
+    <!-- Main: danh sách sản phẩm -->
+    <main class="container">
+      <h2 class="page-title">Sản phẩm nổi bật</h2>
+
+      <div id="product-list" class="product-list">
+        <!-- Product card (dùng id để chuyển chi tiết) -->
+        <div class="product-card" data-id="son" data-name="Son môi cao cấp">
+          <img
+            src="IMG/son.jpg"
+            alt="Son môi cao cấp"
+            onerror="this.src='https://via.placeholder.com/200x150'"
+          />
+          <h3>Son môi cao cấp</h3>
+          <p class="price">250,000đ</p>
+          <a class="btn detail" href="product.html?product=son">Xem chi tiết</a>
+        </div>
+
+        <div class="product-card" data-id="kem" data-name="Kem dưỡng da">
+          <img
+            src="IMG/kem-duong.jpg"
+            alt="Kem dưỡng da"
+            onerror="this.src='https://via.placeholder.com/200x150'"
+          />
+          <h3>Kem dưỡng da</h3>
+          <p class="price">350,000đ</p>
+          <a class="btn detail" href="product.html?product=kem">Xem chi tiết</a>
+        </div>
+
+        <div class="product-card" data-id="sua" data-name="Sữa rửa mặt">
+          <img
+            src="IMG/sua-rua-mat.jpg"
+            alt="Sữa rửa mặt"
+            onerror="this.src='https://via.placeholder.com/200x150'"
+          />
+          <h3>Sữa rửa mặt</h3>
+          <p class="price">180,000đ</p>
+          <a class="btn detail" href="product.html?product=sua">Xem chi tiết</a>
+        </div>
+
+        <div class="product-card" data-id="nuochoa" data-name="Nước hoa">
+          <img
+            src="IMG/nuoc-hoa.jpg"
+            alt="Nước hoa"
+            onerror="this.src='https://via.placeholder.com/200x150'"
+          />
+          <h3>Nước hoa</h3>
+          <p class="price">1,200,000đ</p>
+          <a class="btn detail" href="product.html?product=nuochoa"
+            >Xem chi tiết</a
+          >
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

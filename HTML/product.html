@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>The Real Aura - Chi tiết</title>
+    <link rel="stylesheet" href="../CSS/style_product.css" />
+    <script src="../../jquery/JS/script.js" defer></script>
+  </head>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const addToCartBtn = document.getElementById("add-to-cart");
+      const buyNowBtn = document.getElementById("buy-now");
+
+      // Lấy dữ liệu sản phẩm
+      function getProductData() {
+        const name = document.getElementById("detail-name").textContent;
+        const priceText = document
+          .getElementById("detail-price")
+          .textContent.replace(/[^\d]/g, "");
+        const price = parseInt(priceText) || 0;
+        const qty = parseInt(document.getElementById("qty").value) || 1;
+        const image = document.getElementById("detail-img").src;
+
+        return {
+          name,
+          price,
+          qty,
+          image,
+          subtotal: price * qty,
+        };
+      }
+
+      // Lưu vào giỏ hàng (LocalStorage)
+      function saveToCart(product) {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        // Kiểm tra sản phẩm đã có trong giỏ chưa
+        const index = cart.findIndex((item) => item.name === product.name);
+        if (index > -1) {
+          // Nếu có rồi thì tăng số lượng
+          cart[index].qty += product.qty;
+          cart[index].subtotal = cart[index].price * cart[index].qty;
+        } else {
+          cart.push(product);
+        }
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+
+        // Tính tổng
+        const total = cart.reduce((acc, item) => acc + item.subtotal, 0);
+        localStorage.setItem("total", total);
+      }
+
+      // Thêm vào giỏ
+      addToCartBtn.addEventListener("click", () => {
+        const product = getProductData();
+        saveToCart(product);
+        alert("Đã thêm sản phẩm vào giỏ hàng!");
+      });
+
+      // Mua ngay
+      buyNowBtn.addEventListener("click", () => {
+        const product = getProductData();
+        saveToCart(product);
+        window.location.href = "donhang.html"; // Chuyển sang trang đơn hàng
+      });
+    });
+  </script>
+
+  <body>
+    <!-- Header + Menu (same) -->
+    <!-- <header>
+        <div class="top-bar">
+            <div class="logo">The Real Aura</div>
+
+            <div class="search-wrap">
+                <input id="header-search" class="search-input" type="text" placeholder="Nhập từ khóa" />
+                <button id="header-search-btn" class="search-btn">Tìm</button>
+            </div>
+        </div>
+
+        <nav class="menu-bar">
+            <ul>
+                <li><a href="./index.html">Trang chủ</a></li>
+                <li><a href="./gioithieu.html">Giới Thiệu</a></li>
+                <li class="dropdown">
+                    <button class="dropbtn">
+    <a href="./indexproduct.html">Tất cả sản phẩm </a><span class="arrow">▼</span>
+  </button> -->
+    <!-- <div class="dropdown-content">
+  <a href="#"
+                ><select onchange="navigateParent(this)"
+                  style="
+                    background-color: rgb(139, 16, 37);
+                    color: white;
+                    border: none;
+                    padding: 5px;
+                    padding-top: 0%;
+                    border-radius: 5px;
+                  "
+                  name="Sản phẩm"
+                  id="select"
+                >
+                  <option value="#">Sản phẩm </option>
+                  <option value="../HTML/SanPhamBanChay.html"><a href="#">Sản phẩm bán chạy</a></option>
+                  <option value="../HTML/SanPhamKhuyenMai.html">Sản phẩm khuyến mãi</option>
+                  <option value="./indexproduct.html"><a href="#">Tất cả sản phẩm</a></option>
+                </select></a>
+  </div> -->
+    <!-- </li>
+                <li><a href="./lienhe.html">Liên hệ</a></li>
+                <li><a href="./blog.html">Tin Tức</a></li>
+            </ul>
+        </nav>
+    </header> -->
+    <iframe
+      src="../HTML/nav.html"
+      frameborder="0"
+      width="100%"
+      height="170px"
+    ></iframe>
+
+    <!-- Chi tiết sản phẩm -->
+    <main class="container">
+      <div id="detail-box" class="detail-box">
+        <img
+          id="detail-img"
+          src="https://via.placeholder.com/300x300"
+          alt="Sản phẩm"
+        />
+        <div class="detail-info">
+          <h2 id="detail-name">Tên sản phẩm</h2>
+          <p id="detail-rating" class="rating"></p>
+          <p id="detail-price" class="price">0đ</p>
+          <p>
+            <strong>Màu sắc:</strong> <span id="detail-color">-</span> |
+            <strong>Thương hiệu:</strong> Real Aura
+          </p>
+
+          <label for="qty">Số lượng:</label>
+          <input id="qty" type="number" min="1" value="1" />
+
+          <div class="actions">
+            <button id="add-to-cart" class="btn add">Thêm vào giỏ</button>
+            <button id="buy-now" class="btn buy">Mua ngay</button>
+          </div>
+
+          <hr />
+          <h3>Mô tả sản phẩm</h3>
+          <p id="detail-desc">Mô tả chi tiết sản phẩm sẽ hiển thị ở đây.</p>
+        </div>
+      </div>
+
+      <h3 class="related-title">Sản phẩm liên quan</h3>
+      <div class="related-list" id="related-list">
+        <!-- populated by script or static below -->
+      </div>
+    </main>
+  </body>
+</html>

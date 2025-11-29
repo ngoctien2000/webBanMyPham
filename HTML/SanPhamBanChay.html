@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sản phẩm bán chạy - The Real Aura</title>
+    <link rel="stylesheet" href="../CSS/style.css" />
+  </head>
+
+  <body>
+    <!-- Header -->
+    <!-- <div class="title">
+      <h3>The Real Aura</h3>
+      <input type="text" id="text" placeholder="Nhập từ khóa" />
+      <button id="nutTim">Tìm</button>
+    </div> -->
+
+    <!-- Navigation -->
+    <!-- <nav class="thanhbar">
+      <ul>
+        <li><a href="trang-chu.html">Trang Chủ</a></li>
+        <li><a href="gioi-thieu.html">Giới Thiệu</a></li>
+        <li>
+          <select id="productMenu" onchange="location = this.value;">
+            <option value="#">Sản Phẩm</option>
+            <option value="SanPhamBanChay.html" selected>
+              Sản Phẩm Bán Chạy
+            </option>
+            <option value="SanPhamKhuyenMai.html">Sản Phẩm Ưu Đãi</option>
+          </select>
+        </li>
+        <li><a href="lien-he.html">Liên Hệ</a></li>
+        <li><a href="tin-tuc.html">Tin Tức</a></li>
+      </ul>
+    </nav> -->
+
+    <iframe
+      src="../HTML/nav.html"
+      frameborder="0"
+      width="100%"
+      height="180px"
+    ></iframe>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+      <a href="index.html">Trang chủ</a> &gt;
+      <a href="indexproduct.html">Sản phẩm</a> &gt;
+      <span>Sản phẩm ưu đãi</span>
+    </div>
+    <div class="container">
+      <!-- Sidebar Filter -->
+      <aside class="sidebar">
+        <!-- Thương hiệu -->
+        <div class="filter-group">
+          <h3>Thương hiệu</h3>
+          <div class="filter-options">
+            <label
+              ><input type="checkbox" name="brand" value="loreal" />
+              L'Oréal</label
+            >
+            <label
+              ><input type="checkbox" name="brand" value="klairs" />
+              Klairs</label
+            >
+            <label
+              ><input type="checkbox" name="brand" value="Cocoon" />
+              Cocoon</label
+            >
+            <label
+              ><input type="checkbox" name="brand" value="olay" /> Olay</label
+            >
+            <label
+              ><input type="checkbox" name="brand" value="hydra" /> HYDRA</label
+            >
+            <label
+              ><input type="checkbox" name="brand" value="dior" /> Dior</label
+            >
+          </div>
+        </div>
+
+        <!-- Danh mục -->
+        <div class="filter-group">
+          <h3>Danh mục</h3>
+          <div class="filter-options">
+            <label
+              ><input type="checkbox" name="category" value="skincare" /> Chăm
+              sóc da</label
+            >
+            <label
+              ><input type="checkbox" name="category" value="makeup" /> Trang
+              điểm</label
+            >
+            <label
+              ><input type="checkbox" name="category" value="fragrance" /> Nước
+              hoa</label
+            >
+            <label
+              ><input type="checkbox" name="category" value="hair" /> Chăm sóc
+              tóc</label
+            >
+          </div>
+        </div>
+
+        <!-- Đánh giá -->
+        <div class="filter-group">
+          <h3>Đánh giá</h3>
+          <div class="filter-options">
+            <label
+              ><input type="checkbox" name="rating" value="5" /> ★★★★★ (5
+              sao)</label
+            >
+            <label
+              ><input type="checkbox" name="rating" value="4" /> ★★★★☆ (4
+              sao)</label
+            >
+            <label
+              ><input type="checkbox" name="rating" value="3" /> ★★★☆☆ (3
+              sao)</label
+            >
+          </div>
+        </div>
+
+        <!-- Sắp xếp -->
+        <div class="filter-group">
+          <h3>Sắp xếp</h3>
+          <div class="filter-options">
+            <label
+              ><input type="radio" name="sort" value="popular" /> Phổ biến
+              nhất</label
+            >
+            <label
+              ><input type="radio" name="sort" value="bestseller" checked /> Bán
+              chạy nhất</label
+            >
+            <label
+              ><input type="radio" name="sort" value="price-low" /> Giá thấp đến
+              cao</label
+            >
+            <label
+              ><input type="radio" name="sort" value="price-high" /> Giá cao đến
+              thấp</label
+            >
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <div class="page-header">
+          <h1 class="page-title">Sản phẩm bán chạy</h1>
+          <div class="result-count">Hiển thị 9 sản phẩm</div>
+        </div>
+
+        <div class="product-grid">
+          <!-- Product 1 -->
+          <div
+            class="product-card"
+            data-brand="dior"
+            data-category="makeup"
+            data-price="499000"
+            data-rating="5"
+          >
+            <div class="product-badge best-seller">NỔI BẬT</div>
+            <div class="product-badge discount">-41%</div>
+            <img src="../IMG/sonmoidior.png" alt="sonmoidior" />
+            <div class="product-info">
+              <h3>Rough diro thỏi</h3>
+              <div class="rating">
+                ★★★★★ <span class="rating-count">(153 đánh giá)</span>
+              </div>
+              <div class="price">
+                <span class="old-price">850,000₫</span
+                ><span class="new-price">499,000₫</span>
+              </div>
+              <div class="sold-count">Đã bán 2,1k</div>
+              <button class="add-to-cart" data-product="dior999">
+                Xem chi tiết
+              </button>
+            </div>
+          </div>
+          <!-- Product 7 -->
+          <div
+            class="product-card"
+            data-brand="olay"
+            data-category="skincare"
+            data-price="203000"
+            data-rating="5"
+          >
+            <div class="product-badge best-seller">NỔI BẬT</div>
+            <div class="product-badge discount">-22%</div>
+            <img src="../IMG/kemduongOlay.png" alt="Kem Dưỡng Da" />
+            <div class="product-info">
+              <h3>
+                Kem Dưỡng Ban Ngày Olay Luminous Light Perfecting Cream 50g
+              </h3>
+              <div class="rating">
+                ★★★★★ <span class="rating-count">(230 đánh giá)</span>
+              </div>
+              <div class="price">
+                <span class="old-price">720,000₫</span
+                ><span class="new-price">560,000₫</span>
+              </div>
+              <div class="sold-count">Đã bán 1,9k</div>
+              <button
+                class="add-to-cart"
+                data-product="kemduong_olay_lightperfecting"
+              >
+                Xem chi tiết
+              </button>
+            </div>
+          </div>
+
+          <!-- Product 2 -->
+          <div
+            class="product-card"
+            data-brand="klairs"
+            data-category="skincare"
+            data-price="500000"
+            data-rating="4"
+          >
+            <div class="product-badge best-seller">BÁN CHẠY</div>
+            <img src="../IMG/matnaklair.png" alt="mặt nạ ngủ" />
+            <div class="product-info">
+              <h3>
+                Mặt nạ ngủ Mặt nạ ngủ dưỡng da Klairs Freshly Juiced Vitamin E
+                Mask 90ml
+              </h3>
+              <div class="rating">
+                ★★★★☆ <span class="rating-count">(87 đánh giá)</span>
+              </div>
+              <div class="price"><span class="new-price">500,000₫</span></div>
+              <div class="sold-count">Đã bán 890</div>
+              <button class="add-to-cart" data-product="matna_klairs_vitaminE">
+                Xem chi tiết
+              </button>
+            </div>
+          </div>
+
+          <!-- Product 3 -->
+          <div
+            class="product-card"
+            data-brand="klairs"
+            data-category="fragrance"
+            data-price="250000"
+            data-rating="5"
+          >
+            <div class="product-badge best-seller">BÁN CHẠY</div>
+            <img src="../IMG/nchoaklairs.png" alt="nước hoa klairs" />
+            <div class="product-info">
+              <h3>
+                Toner Nước hoa hồng Klairs không mùi cho da nhạy cảm 180ml
+              </h3>
+              <div class="rating">
+                ★★★★★ <span class="rating-count">(105 đánh giá)</span>
+              </div>
+              <div class="price">
+                <span class="new-price">250,000₫</span>
+              </div>
+              <div class="sold-count">Đã bán 2,1k</div>
+              <button class="add-to-cart" data-product="toner_klairs_180ml">
+                Xem chi tiết
+              </button>
+            </div>
+          </div>
+
+          <!-- Product 4 -->
+          <div
+            class="product-card"
+            data-brand="loreal"
+            data-category="skincare"
+            data-price="296000"
+            data-rating="4"
+          >
+            <div class="product-badge best-seller">BÁN CHẠY</div>
+            <img src="../IMG/serumloreal.png" alt="Serum cấp ẩm loreal" />
+            <div class="product-info">
+              <h3>
+                Serum cấp ẩm sáng da Serum L'Oreal Hyaluronic Acid Cấp Ẩm Sáng
+                Da 30ml
+              </h3>
+              <div class="rating">
+                ★★★★☆ <span class="rating-count">(214 đánh giá)</span>
+              </div>
+              <div class="price"><span class="new-price">296,000₫</span></div>
+              <div class="sold-count">Đã bán 1,5k</div>
+              <button
+                class="add-to-cart"
+                data-product="serum_loreal_hyaluronic"
+              >
+                Xem chi tiết
+              </button>
+            </div>
+          </div>
+
+          <!-- Product 5 -->
+          <div
+            class="product-card"
+            data-brand="Cocoon"
+            data-category="skincare"
+            data-price="9400000"
+            data-rating="5"
+          >
+            <div class="product-badge best-seller">BÁN CHẠY</div>
+            <img src="../IMG/kemchongnangCocoon.png" alt="Kem chống nắng" />
+            <div class="product-info">
+              <h3>
+                Kem chống năng Kem Chống Nắng Cocoon Bí Đao Quang Phổ Rộng
+              </h3>
+              <div class="rating">
+                ★★★★★ <span class="rating-count">(92 đánh giá)</span>
+              </div>
+              <div class="price">
+                <span class="new-price">400,000₫</span>
+              </div>
+              <div class="sold-count">Đã bán 3,4k</div>
+              <button
+                class="add-to-cart"
+                data-product="kemchongnang_cocoon_bidao"
+              >
+                Xem chi tiết
+              </button>
+            </div>
+          </div>
+
+          <!-- Product 6 -->
+          <div
+            class="product-card"
+            data-brand="hydra"
+            data-category="skincare"
+            data-price="495000"
+            data-rating="4"
+          >
+            <div class="product-badge best-seller">BÁN CHẠY</div>
+            <img src="../IMG/serumHydra.png" alt="Serum dưỡng da" />
+            <div class="product-info">
+              <h3>Serum dưỡng da Serum Dưỡng Da Goodndoc Hydra B5 30ml</h3>
+              <div class="rating">
+                ★★★★☆ <span class="rating-count">(176 đánh giá)</span>
+              </div>
+              <div class="price"><span class="new-price">349,000₫</span></div>
+              <div class="sold-count">Đã bán 2,8k</div>
+              <button class="add-to-cart" data-product="serum_goodndoc_hydra">
+                Xem chi tiết
+              </button>
+            </div>
+          </div>
+          <!-- Product 8 -->
+          <div
+            class="product-card"
+            data-brand="olay"
+            data-category="skincare"
+            data-price="399000"
+            data-rating="4"
+          >
+            <div class="product-badge best-seller">BÁN CHẠY</div>
+            <img src="../IMG/serumOlay.png" alt="Serum" />
+            <div class="product-info">
+              <h3>Serum Olay- Dưỡng Ẩm, Chống Lão Hoá Mạnh Mẽ</h3>
+              <div class="rating">
+                ★★★★☆ <span class="rating-count">(199 đánh giá)</span>
+              </div>
+              <div class="price"><span class="new-price">620,000₫</span></div>
+              <div class="sold-count">Đã bán 1,7k</div>
+              <button class="add-to-cart" data-product="serum_olay_antiaging">
+                Xem chi tiết
+              </button>
+            </div>
+          </div>
+
+          <!-- Product 9 -->
+          <div
+            class="product-card"
+            data-brand="estee"
+            data-category="skincare"
+            data-price="320000"
+            data-rating="5"
+          >
+            <div class="product-badge best-seller">BÁN CHẠY</div>
+
+            <img src="../IMG/kemEstee.png" alt="Kem Dưỡng" />
+            <div class="product-info">
+              <h3>
+                Kem Dưỡng Estee Laude 15ml Phục Hồi ,Chống Lão Hoá, Dưỡng Trắng
+                Da
+              </h3>
+              <div class="rating">
+                ★★★★★ <span class="rating-count">(205 đánh giá)</span>
+              </div>
+              <div class="price">
+                <span class="new-price">320,000₫</span>
+              </div>
+              <div class="sold-count">Đã bán 2,3k</div>
+              <button
+                class="add-to-cart"
+                data-product="kemduong_estee_nightrepair"
+              >
+                Xem chi tiết
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination">
+          <div class="page-numbers">
+            <a href="#" class="page-active">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">Next</a>
+          </div>
+        </div>
+      </main>
+    </div>
+    <div>
+      <iframe
+        src="../HTML/footer.html"
+        frameborder="0"
+        width="100%"
+        height="310px"
+      ></iframe>
+    </div>
+
+    <script src="../SCRIPT/script_km.js"></script>
+  </body>
+</html>

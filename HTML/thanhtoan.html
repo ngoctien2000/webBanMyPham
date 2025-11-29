@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thanh toán - The Real Aura</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f7f7f7;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 40px auto;
+        background: #fff;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      h2 {
+        color: #e60073;
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+      }
+
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 12px;
+        text-align: center;
+      }
+
+      th {
+        background: #e60073;
+        color: #fff;
+      }
+
+      .total {
+        text-align: right;
+        font-size: 18px;
+        margin-bottom: 20px;
+      }
+
+      .total strong {
+        color: #e60073;
+      }
+
+      .form-section {
+        margin-top: 30px;
+      }
+
+      .form-section label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+
+      .form-section input,
+      .form-section select,
+      .form-section textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        font-size: 15px;
+      }
+
+      .btn-confirm {
+        display: block;
+        width: 100%;
+        background: #28a745;
+        color: white;
+        border: none;
+        padding: 12px;
+        font-size: 18px;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+
+      .btn-confirm:hover {
+        background: #218838;
+      }
+
+      .error {
+        color: red;
+        font-size: 14px;
+        margin-top: -5px;
+        margin-bottom: 10px;
+      }
+    </style>
+    <link rel="stylesheet" href="../bootstrap-5.3.3-dist/css/bootstrap.css" />
+    <script src="../jquery/jquery-3.7.1.js"></script>
+    <script src="../bootstrap-5.3.3-dist/js/bootstrap.js"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <h2>Thông tin thanh toán</h2>
+
+      <table id="orderTable">
+        <thead>
+          <tr>
+            <th>Tên sản phẩm</th>
+            <th>Giá</th>
+            <th>Số lượng</th>
+            <th>Thành tiền</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+
+      <div class="total">Tổng cộng: <strong id="totalAmount">0 đ</strong></div>
+
+      <div class="form-section">
+        <label for="fullname">Họ và tên *</label>
+        <input type="text" id="fullname" placeholder="Nhập họ và tên" />
+        <div id="errName" class="error"></div>
+
+        <label for="phone">Số điện thoại *</label>
+        <input type="text" id="phone" placeholder="Nhập số điện thoại" />
+        <div id="errPhone" class="error"></div>
+
+        <label for="address">Địa chỉ giao hàng *</label>
+        <textarea id="address" placeholder="Nhập địa chỉ chi tiết"></textarea>
+        <div id="errAddress" class="error"></div>
+
+        <label for="payment">Phương thức thanh toán *</label>
+        <select id="payment">
+          <option value="">-- Chọn phương thức --</option>
+          <option value="COD">Thanh toán khi nhận hàng (COD)</option>
+          <option value="Bank">Chuyển khoản ngân hàng</option>
+          <option value="Card">Thẻ Visa / Mastercard</option>
+        </select>
+        <div id="errPayment" class="error"></div>
+
+        <button class="btn-confirm" id="btnConfirm">Xác nhận đặt hàng</button>
+        <div class="admin">
+          <a
+            href="../HTML/dshoadoa.html"
+            class="link-danger text-decoration-none mt-4"
+            >DS Hóa Đơn</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        const total = Number(localStorage.getItem("total")) || 0;
+
+        const tableBody = document.querySelector("#orderTable tbody");
+        const totalElement = document.getElementById("totalAmount");
+
+        if (cart.length === 0) {
+          tableBody.innerHTML = `<tr><td colspan="4">Không có sản phẩm trong giỏ hàng</td></tr>`;
+        } else {
+          tableBody.innerHTML = cart
+            .map(
+              (item) => `
+          <tr>
+            <td>${item.name}</td>
+            <td>${item.price.toLocaleString("vi-VN")} đ</td>
+            <td>${item.qty}</td>
+            <td>${item.subtotal.toLocaleString("vi-VN")} đ</td>
+          </tr>
+        `
+            )
+            .join("");
+          totalElement.textContent = total.toLocaleString("vi-VN") + " đ";
+        }
+
+        document.getElementById("btnConfirm").addEventListener("click", () => {
+          const name = document.getElementById("fullname").value.trim();
+          const phone = document.getElementById("phone").value.trim();
+          const address = document.getElementById("address").value.trim();
+          const payment = document.getElementById("payment").value;
+
+          document
+            .querySelectorAll(".error")
+            .forEach((e) => (e.textContent = ""));
+
+          let valid = true;
+          if (!validateName(name)) valid = false;
+          if (!validatePhone(phone)) valid = false;
+          if (!validateAddress(address)) valid = false;
+          if (!validatePayment(payment)) valid = false;
+
+          if (valid) {
+            // code thêm
+            const invoice = {
+              id: "HD" + Date.now(),
+              name,
+              phone,
+              address,
+              payment,
+              items: JSON.parse(localStorage.getItem("cart")) || [],
+              total: localStorage.getItem("total") || 0,
+              date: new Date().toLocaleString("vi-VN"),
+            };
+
+            let invoices = JSON.parse(localStorage.getItem("invoices")) || [];
+            invoices.push(invoice);
+            localStorage.setItem("invoices", JSON.stringify(invoices));
+            // code thêm
+
+            alert(
+              "🎉 Đặt hàng thành công! Cảm ơn bạn đã mua sắm tại The Real Aura 💖"
+            );
+          }
+        });
+      });
+
+      function validateName(name) {
+        const err = document.getElementById("errName");
+        if (name === "") {
+          err.textContent = "Vui lòng nhập họ tên.";
+          return false;
+        }
+        const regex = /^[A-Za-zÀ-ỹ\s]+$/;
+        if (!regex.test(name)) {
+          err.textContent = "Họ tên chỉ được chứa chữ cái và khoảng trắng.";
+          return false;
+        }
+        if (name.length < 5) {
+          err.textContent = "Họ tên phải có ít nhất 5 ký tự.";
+          return false;
+        }
+        return true;
+      }
+
+      function validatePhone(phone) {
+        const err = document.getElementById("errPhone");
+        const regex = /^(0[3|5|7|8|9])[0-9]{8}$/;
+        if (!regex.test(phone)) {
+          err.textContent = "Số điện thoại không hợp lệ.";
+          return false;
+        }
+        return true;
+      }
+
+      function validateAddress(address) {
+        const err = document.getElementById("errAddress");
+        if (address === "") {
+          err.textContent = "Vui lòng nhập địa chỉ.";
+          return false;
+        }
+        if (address.length < 10) {
+          err.textContent = "Địa chỉ quá ngắn, vui lòng nhập rõ hơn.";
+          return false;
+        }
+        return true;
+      }
+
+      function validatePayment(payment) {
+        const err = document.getElementById("errPayment");
+        if (payment === "") {
+          err.textContent = "Vui lòng chọn phương thức thanh toán.";
+          return false;
+        }
+        return true;
+      }
+    </script>
+  </body>
+</html>

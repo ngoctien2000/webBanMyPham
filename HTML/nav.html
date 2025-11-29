@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navigation</title>
+    <link rel="stylesheet" href="../CSS/nav.css" />
+    <link
+      rel="stylesheet"
+      href="../bootstrap-5.3.3-dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      .thanhbar ul {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+        padding: 0;
+        height: 45px;
+      }
+      .thanhbar li {
+        padding: 7px 0 7px 0;
+        display: inline-block;
+      }
+      .thanhbar select {
+        background-color: rgb(139, 16, 37);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 5px;
+      }
+      .title h3 {
+        font-size: 55px;
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="title">
+      <h3>The Real Aura</h3>
+    </div>
+
+    <div class="thanhbar">
+      <ul>
+        <li><a href="index.html" target="_parent">Trang chủ</a></li>
+        <li><a href="gioithieu.html" target="_parent">Giới Thiệu</a></li>
+        <li>
+          <select onchange="navigateParent(this)">
+            <option value="">Chọn loại sản phẩm</option>
+            <option value="SanPhamBanChay.html">Sản phẩm bán chạy</option>
+            <option value="SanPhamKhuyenMai.html">Sản phẩm khuyến mãi</option>
+            <option value="indexproduct.html">Tất cả sản phẩm</option>
+          </select>
+        </li>
+        <li><a href="lienhe.html" target="_parent">Liên hệ</a></li>
+        <li><a href="blog.html" target="_parent">Tin Tức</a></li>
+        <li>
+          <a href="#" onclick="gotologin()"
+            ><i class="fas fa-user-circle"></i> Tài Khoản</a
+          >
+        </li>
+        <li>
+          <a href="#" onclick="toigiohang()"
+            ><i class="fas fa-truck"></i> Giỏ Hàng</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <script>
+      function navigateParent(select) {
+        if (select.value) {
+          // Dùng window.parent để iframe điều hướng ra trang cha
+          window.parent.location.href = select.value;
+        }
+      }
+
+      function gotologin() {
+        window.parent.location.href = "DangNhap.HTML";
+      }
+
+      function toigiohang() {
+        window.parent.location.href = "giohang.html";
+      }
+
+      document.getElementById("nutTim").addEventListener("click", function () {
+        alert("Tính năng chưa được hỗ trợ!");
+      });
+    </script>
+  </body>
+</html>

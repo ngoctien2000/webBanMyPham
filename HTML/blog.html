@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog làm đẹp</title>
+    <!-- <link
+      rel="stylesheet"
+      href="../../css/bootstrap-5.3.3-dist/css/bootstrap.css"
+    />
+    <script src="../../css/bootstrap-5.3.3-dist/js/bootstrap.js"></script>
+    <script src="../../js/jquery-3.7.1.min.js"></script> -->
+    <style>
+      * {
+        margin: 0;
+      }
+      a {
+        text-decoration: none;
+      }
+      a.sp:hover {
+        color: red;
+      }
+
+      .title {
+        height: 50px;
+        display: flex;
+        background-color: rgb(234, 184, 193);
+        justify-content: center;
+        padding: 10px 0 10px 0;
+        gap: 30px;
+        height: 30px;
+      }
+      .title h3 {
+        margin-top: 5px;
+      }
+      .menu {
+        display: block;
+        height: 100px;
+      }
+      #text {
+        border-radius: 30px;
+        width: 300px;
+      }
+      #nutTim {
+        border-radius: 30px;
+      }
+      .thanhbar ul {
+        display: flex;
+        margin: 0;
+        height: 40px;
+        gap: 20px;
+        list-style: none;
+        justify-content: center;
+        background-color: rgb(139, 16, 37);
+        padding-top: 15px;
+      }
+
+      .thanhbar ul li a {
+        text-decoration: none;
+        color: aliceblue;
+        background-color: rgb(139, 16, 37);
+      }
+
+      .center {
+        justify-content: center;
+        padding: 0 20px 20px 20px;
+        font-family: serif;
+        font-size: 17px;
+      }
+      #table img {
+        padding: 20px;
+        gap: 20px;
+        width: 450px;
+        height: 300px;
+        border-radius: 30px;
+      }
+      #table {
+        margin-top: 10px;
+        background-color: rgb(196, 212, 248);
+      }
+      .nd1 p {
+        font-size: 25px;
+      }
+      .nd1 img {
+        border-radius: 30px;
+        margin: 10px;
+      }
+      .nd1 h3 {
+        font-size: 25px;
+        background-color: lightpink;
+      }
+
+      .linkdan ol {
+        display: flex;
+        gap: 5px;
+        list-style-type: none;
+      }
+      .linkdan ol li a {
+        text-decoration: none;
+      }
+      .text {
+        padding-top: 5px;
+        padding-left: 35px;
+        font-size: 25px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <!-- vung tieu de  -->
+      <!-- <div class="menu">
+        <div class="title">
+          <h3>LAVIE COMESTICS</h3>
+          <input type="text" name="" id="text" placeholder="Nhập từ khóa" />
+          <button id="nutTim">Tìm</button>
+        </div>
+        <div class="thanhbar">
+          <ul>
+            <li><a href="#">Trang chủ</a></li>
+            <li><a href="../HTML/gioithieu.html">Giới Thiệu</a></li>
+            <li>
+              <a href="#"
+                ><select
+                  style="
+                    background-color: rgb(139, 16, 37);
+                    color: white;
+                    border: none;
+                    border-radius: 5px;
+                  "
+                  name="Sản phẩm"
+                  id="select"
+                >
+                  <option value="1">Tất cả sản phẩm</option>
+                  <option value="2">Sản phẩm bán chạy</option>
+                  <option value="3">sản phẩm khuyến mãi</option>
+                </select></a
+              >
+            </li>
+            <li><a href="#">Liên hệ</a></li>
+            <li><a href="../HTML/blog.html">Tin Tức</a></li>
+          </ul>
+        </div>
+      </div> -->
+
+      <iframe
+        src="../HTML/nav.html"
+        frameborder="0"
+        width="100%"
+        height="170px"
+      ></iframe>
+
+      <!-- vung noi dung blog -->
+      <div class="center">
+        <div class="linkdan">
+          <ol>
+            <li><a href="../HTML/index.html">Trang Chủ > </a></li>
+            <li><a href="../HTML/blog.html">Tin Tức</a></li>
+          </ol>
+        </div>
+        <div class="nd1">
+          <h2>ĐẶC ĐIỂM CỦA DA NHẠY CẢM</h2>
+          <h3>Mẩn đỏ và kích ứng</h3>
+          <p>
+            Da nhạy cảm thường nổi mẩn đỏ, đặc biệt là sau khi tiếp xúc với ánh
+            nắng quá mức, sản phẩm chăm sóc da hoặc mỹ phẩm không phù hợp. Những
+            vết mẩn đỏ này có thể xuất hiện nhanh chóng và kéo dài trong một
+            khoảng thời gian. Chúng thường tập trung ở các
+            <b>vùng da mỏng manh như má, cằm và trán</b>. Đôi khi, việc chỉ sử
+            dụng nước hoặc xà phòng thông thường cũng có thể gây ra mẩn đỏ cho
+            da nhạy cảm.
+          </p>
+          <h3>Nóng rát</h3>
+          <p>
+            <b
+              >Cảm giác ngứa ngáy và nóng rát là dấu hiệu thường gặp khi da nhạy
+              cảm bị kích ứng</b
+            >. Ngứa và rát có thể xuất hiện ngay sau khi bạn sử dụng một sản
+            phẩm mới hoặc sau khi tiếp xúc với các yếu tố kích thích như gió
+            lạnh, ánh nắng mặt trời. Những ảm giác này không chỉ gây khó chịu mà
+            còn có thể dẫn đến việc gãi, làm tổn thương và viêm nhiễm da.
+          </p>
+          <img src="../img/mat_do.jpg" alt="" />
+
+          <h3>Tiêu chí chọn kem dưỡng ẩm cho da nhạy cảm</h3>
+
+          <ul>
+            <li>
+              <p>
+                <b>Vitamin E</b>: Là một thành phần dưỡng ẩm thân thiện với da
+                nhạy cảm, Vitamin E không chỉ bảo vệ da khỏi quá trình oxy hóa
+                mạnh mẽ mà còn giữ cho da mềm mại, ngăn ngừa các dấu hiệu lão
+                hóa sớm như nếp nhăn và khô da.
+              </p>
+            </li>
+            <li>
+              <p>
+                <b>Niacinamide</b>: Được xem là hợp chất vàng trong ngành mỹ
+                phẩm, Niacinamide không chỉ giúp se khít lỗ chân lông và làm
+                sáng da mà còn cung cấp độ ẩm, chống lão hóa và tăng cường độ
+                đàn hồi cho da.
+              </p>
+            </li>
+            <li>
+              <p>
+                <b>Ceramide</b>: Là thành phần thiết yếu trong hàng rào bảo vệ
+                da, Ceramide giúp duy trì độ ẩm và bảo vệ da khỏi các tác nhân
+                gây hại từ môi trường. Ceramide củng cố cấu trúc da, giảm thiểu
+                sự mất nước và làm dịu da nhạy cảm, giúp da luôn mềm mại và khỏe
+                mạnh.
+              </p>
+            </li>
+            <li>
+              <p>
+                <b>Hyaluronic Acid (HA)</b>: Được coi là "chiến binh" cấp nước
+                cho da, HA có khả năng thẩm thấu sâu vào da để cung cấp độ ẩm
+                cần thiết, giúp da trở nên căng mọng và mịn màng.
+              </p>
+            </li>
+          </ul>
+
+          <h2>GỢI Ý 4 KEM DƯỠNG HIỆU QUẢ CHO DA MẶT NHẠY CẢM, DỄ BỊ MỤN</h2>
+          <p>
+            Việc chọn kem dưỡng phù hợp là chìa khóa để nuôi dưỡng làn da khỏe
+            mạnh, dịu nhẹ mà vẫn không gây bí da hay bít tắc lỗ chân lông. Dưới
+            đây là 4 sản phẩm kem dưỡng
+            <b
+              >được khuyên dùng bởi các chuyên gia da liễu, phù hợp cho làn da
+              nhạy cảm và mụn:</b
+            >
+          </p>
+          <!-- vung noi dung gom: text va hinh anh -->
+          <table id="table">
+            <tr>
+              <td>
+                <div class="text">
+                  <b> 1. Kem Mắt AHC Real Eye Cream</b> <br />
+                  🌿 Công dụng: Giảm mụn, ngừa thâm, làm dịu da <br />
+                  💧 Thành phần chính:
+                  <ul>
+                    <li>
+                      Niacinamide (Vitamin B3): Làm sáng da, hỗ trợ giảm thâm,
+                      kháng viêm.
+                    </li>
+                    <li>
+                      Salicylic Acid (BHA): Tẩy tế bào chết nhẹ nhàng, hỗ trợ
+                      làm sạch lỗ chân lông.
+                    </li>
+                    <li>
+                      Procerad™: Một hoạt chất độc quyền giúp giảm hình thành
+                      thâm đỏ sau mụn.
+                    </li>
+                    <li>Zinc PCA: Giúp kiểm soát dầu hiệu quả.</li>
+                  </ul>
+                  <br />
+                  💡 Điểm nổi bật: Chất gel-cream thẩm thấu nhanh, không gây
+                  nhờn rít. Phù hợp cho cả da nhạy cảm bị mụn viêm.
+                  <br />
+                  Xem sản phẩm tại
+
+                  <a
+                    class="sp"
+                    href="http://127.0.0.1:5500/HTML/product.html?product=kemmat_ahc_realeye"
+                  >
+                    đây</a
+                  >
+                </div>
+              </td>
+              <td>
+                <img src="../IMG/kemmat_ahc_realeye.jpg" alt="" id="anh1" />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="text">
+                  <b>2. Kem Dưỡng Olay Light Perfecting</b>
+                  <br />
+                  🌿 Công dụng: Dưỡng ẩm, giảm kích ứng, làm dịu da nhạy cảm
+                  <br />
+                  💧 Thành phần chính:
+                  <ul>
+                    <li>
+                      Toléridine™: Công nghệ độc quyền giúp giảm độ nhạy cảm của
+                      da.
+                    </li>
+                    <li>Glycyrrhetinic Acid: Giúp giảm đỏ và ngứa rát.</li>
+                    <li>Glycerin: Cấp ẩm, làm mềm da.</li>
+                  </ul>
+                  <br />
+                  💡 Điểm nổi bật: Kết cấu mỏng nhẹ, thấm nhanh, phù hợp cho da
+                  nhạy cảm và dễ
+                  <br />
+                  Xem sản phẩm tại
+
+                  <a
+                    class="sp"
+                    href="http://127.0.0.1:5500/HTML/product.html?product=kemduong_olay_lightperfecting"
+                  >
+                    đây</a
+                  >
+                </div>
+              </td>
+              <td>
+                <img src="../IMG/kemduong_olay_lightperfecting.jpg" alt="" />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="text">
+                  <b>3.Serum Olay Chống Lão Hóa</b>
+                  <p>🌿 Công dụng: Làm dịu da, giảm kích ứng, dưỡng ẩm 48h</p>
+                  <p>💧 Thành phần chính:</p>
+                  <ul>
+                    <li>
+                      Prebiotic Thermal Water: Bổ sung lợi khuẩn, cân bằng hệ vi
+                      sinh trên da.
+                    </li>
+                    <li>Glycerin: Dưỡng ẩm, phục hồi da khô.</li>
+                    <li>Ceramide: Củng cố hàng rào bảo vệ da.</li>
+                  </ul>
+                  <p>
+                    💡 Điểm nổi bật: Không paraben, không cồn, an toàn cho da
+                    nhạy cảm.
+                    <br />
+                    Xem sản phẩm tại
+
+                    <a
+                      class="sp"
+                      href="http://127.0.0.1:5500/HTML/product.html?product=serum_olay_antiaging"
+                    >
+                      đây</a
+                    >
+                  </p>
+                </div>
+              </td>
+              <td>
+                <img src="../IMG/serum_olay_antiaging.jpg" alt="" />
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="footer">
+        <iframe
+          src="../HTML/footer.html"
+          frameborder="0"
+          width="100%"
+          height="300px"
+        ></iframe>
+      </div>
+    </div>
+  </body>
+</html>

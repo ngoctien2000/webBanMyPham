@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sản phẩm ưu đãi - The Real Aura</title>
+    <link rel="stylesheet" href="../CSS/style.css" />
+  </head>
+
+  <body>
+    <!-- Header -->
+    <!-- <div class="title">
+      <h3>The Real Aura</h3>
+      <input type="text" id="text" placeholder="Nhập từ khóa" />
+      <button id="nutTim">Tìm</button>
+    </div> -->
+
+    <!-- Navigation -->
+    <!-- <nav class="thanhbar">
+      <ul>
+        <li><a href="trang-chu.html">Trang Chủ</a></li>
+        <li><a href="gioi-thieu.html">Giới Thiệu</a></li>
+        <li>
+          <select id="productMenu" onchange="location = this.value;">
+            <option value="#">Sản Phẩm</option>
+            <option value="SanPhamBanChay.html">Sản Phẩm Bán Chạy</option>
+            <option value="SanPhamKhuyenMai.html" selected>
+              Sản Phẩm Ưu Đãi
+            </option>
+          </select>
+        </li>
+        <li><a href="lien-he.html">Liên Hệ</a></li>
+        <li><a href="tin-tuc.html">Tin Tức</a></li>
+      </ul>
+    </nav> -->
+    <iframe
+      src="../HTML/nav.html"
+      frameborder="0"
+      width="100%"
+      height="170px"
+    ></iframe>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+      <a href="index.html">Trang chủ</a> &gt;
+      <a href="indexproduct.html">Sản phẩm</a> &gt;
+      <span>Sản phẩm ưu đãi</span>
+    </div>
+
+    <div class="container">
+      <!-- Sidebar Filter -->
+      <aside class="sidebar">
+        <!-- Thương hiệu -->
+        <div class="filter-group">
+          <h3>Thương hiệu</h3>
+          <div class="filter-options">
+            <label
+              ><input type="checkbox" name="brand" value="loreal" />
+              L'Oréal</label
+            >
+            <label
+              ><input type="checkbox" name="brand" value="olay" /> Olay</label
+            >
+            <label
+              ><input type="checkbox" name="brand" value="dior" /> DIOR</label
+            >
+            <label
+              ><input type="checkbox" name="brand" value="ahc" /> AHC</label
+            >
+          </div>
+        </div>
+
+        <!-- Khoảng giá -->
+        <div class="filter-group">
+          <h3>Khoảng giá</h3>
+          <div class="filter-options">
+            <label
+              ><input type="checkbox" name="price" value="under100" /> Dưới
+              100.000₫</label
+            >
+            <label
+              ><input type="checkbox" name="price" value="100-200" /> 100.000₫ -
+              200.000₫</label
+            >
+            <label
+              ><input type="checkbox" name="price" value="300-500" /> 300.000₫ -
+              500.000₫</label
+            >
+            <label
+              ><input type="checkbox" name="price" value="500-900" /> 500.000₫ -
+              900.000₫</label
+            >
+            <label
+              ><input type="checkbox" name="price" value="over1000" /> Trên
+              1.000.000₫</label
+            >
+          </div>
+        </div>
+
+        <!-- Dịch vụ giao hàng -->
+        <div class="filter-group">
+          <h3>Dịch vụ giao hàng</h3>
+          <div class="filter-options">
+            <label
+              ><input type="checkbox" name="shipping" value="free" /> Miễn phí
+              giao hàng</label
+            >
+            <label
+              ><input type="checkbox" name="shipping" value="fast" /> Giao hàng
+              nhanh</label
+            >
+            <label
+              ><input type="checkbox" name="shipping" value="save" /> Giao hàng
+              tiết kiệm</label
+            >
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <div class="page-header">
+          <h1 class="page-title">Sản phẩm ưu đãi</h1>
+          <div class="result-count">Hiển thị 5 sản phẩm</div>
+        </div>
+        <div class="product-grid">
+          <!-- Product 1 -->
+          <div
+            class="product-card"
+            data-brand="loreal"
+            data-price="179000"
+            data-shipping="fast"
+          >
+            <div class="product-badge best-seller">Ưu đãi</div>
+            <div class="product-badge discount">-16%</div>
+            <img src="../IMG/taytranLoreal.png" alt="tẩy trang" />
+            <div class="product-info">
+              <h3>
+                Nước Tẩy Trang Làm Sạch Tươi Mát, Dưỡng Ẩm Cho Da L'Oreal 3-in-1
+                Micellar Water
+              </h3>
+              <div class="rating">
+                ★★★★★ <span class="rating-count">(84 đánh giá)</span>
+              </div>
+              <div class="price">
+                <span class="old-price">250,000₫</span>
+                <span class="new-price">210,000₫</span>
+              </div>
+              <div class="sold-count">Đã Bán 1,5k</div>
+              <button
+                class="add-to-cart"
+                data-product="nuoctaytrang_loreal_micellar"
+              >
+                Xem chi tiết
+              </button>
+            </div>
+          </div>
+          <!-- Product 2 -->
+          <div
+            class="product-card"
+            data-brand="dior"
+            data-category="makeup"
+            data-price="499000"
+            data-shipping="save"
+          >
+            <div class="product-badge best-seller">Ưu đãi</div>
+            <div class="product-badge discount">-41%</div>
+            <img src="../IMG/sonmoidior.png" alt="sonmoidior" />
+            <div class="product-info">
+              <h3>Rough diro thỏi</h3>
+              <div class="rating">
+                ★★★★★ <span class="rating-count">(153 đánh giá)</span>
+              </div>
+              <div class="price">
+                <span class="old-price">850,000₫</span
+                ><span class="new-price">499,000₫</span>
+              </div>
+              <div class="sold-count">Đã bán 2,1k</div>
+              <button class="add-to-cart" data-product="dior999">
+                Xem chi tiết
+              </button>
+            </div>
+          </div>
+
+          <!-- Product 3 -->
+          <div
+            class="product-card"
+            data-brand="olay"
+            data-category="skincare"
+            data-price="203000"
+            data-shipping="free"
+          >
+            <div class="product-badge best-seller">NỔI BẬT</div>
+            <div class="product-badge discount">-22%</div>
+            <img src="../IMG/kemduongOlay.png" alt="Kem Dưỡng Da" />
+            <div class="product-info">
+              <h3>
+                Kem Dưỡng Ban Ngày Olay Luminous Light Perfecting Cream 50g
+              </h3>
+              <div class="rating">
+                ★★★★★ <span class="rating-count">(230 đánh giá)</span>
+              </div>
+              <div class="price">
+                <span class="old-price">702,000₫</span
+                ><span class="new-price">560,000₫</span>
+              </div>
+              <div class="sold-count">Đã bán 1,9k</div>
+              <button
+                class="add-to-cart"
+                data-product="kemduong_olay_lightperfecting"
+              >
+                Xem chi tiết
+              </button>
+            </div>
+          </div>
+
+          <!-- Product 4 -->
+          <div
+            class="product-card"
+            data-brand="ahc"
+            data-price="139000"
+            data-shipping="fast"
+          >
+            <div class="product-badge best-seller">Ưu đãi</div>
+            <div class="product-badge discount">-10%</div>
+            <img src="../IMG/kemmatAHC.png" alt="Kem mắt" />
+            <div class="product-info">
+              <h3>Kem mắt Ten Revolution Real Eye Cream For Face</h3>
+              <div class="rating">
+                ★★★★★ <span class="rating-count">(134 đánh giá)</span>
+              </div>
+              <div class="price">
+                <span class="old-price">500,000₫</span>
+                <span class="new-price">450,000₫</span>
+              </div>
+              <div class="sold-count">Đã Bán 1,1k</div>
+              <button class="add-to-cart" data-product="kemmat_ahc_realeye">
+                Xem chi tiết
+              </button>
+            </div>
+          </div>
+
+          <!-- Product 5 -->
+          <div
+            class="product-card"
+            data-brand="loreal"
+            data-price="299000"
+            data-shipping="free"
+          >
+            <div class="product-badge best-seller">Ưu đãi</div>
+            <div class="product-badge discount">-25.5%</div>
+            <img src="../IMG/kemchongnangLoreal.png" alt="Kem chống nắng" />
+            <div class="product-info">
+              <h3>
+                Kem Chống Nắng L'Oreal vạch đỏ Loreal UV Defender Serum
+                Invisible Fluid SPF50+ PA++++
+              </h3>
+              <div class="rating">
+                ★★★★★ <span class="rating-count">(165 đánh giá)</span>
+              </div>
+              <div class="price">
+                <span class="old-price">470,000₫</span>
+                <span class="new-price">350,000₫</span>
+              </div>
+              <div class="sold-count">Đã Bán 2,1k</div>
+              <button
+                class="add-to-cart"
+                data-product="kemchongnang_loreal_uvdefender"
+              >
+                Xem chi tiết
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination">
+          <div class="page-numbers">
+            <a href="#" class="page-active">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">Next</a>
+          </div>
+        </div>
+      </main>
+    </div>
+    <iframe
+      src="../HTML/footer.html"
+      frameborder="0"
+      width="100%"
+      height="295px"
+    ></iframe>
+
+    <script src="../SCRIPT/script_km.js"></script>
+  </body>
+</html>

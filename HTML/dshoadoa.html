@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Danh sách hóa đơn - The Real Aura</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f7f7f7;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        max-width: 1100px;
+        margin: 40px auto;
+        background: #fff;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      h2 {
+        color: #e60073;
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: center;
+        vertical-align: middle;
+      }
+
+      th {
+        background: #e60073;
+        color: #fff;
+      }
+
+      tr:nth-child(even) {
+        background: #f9f9f9;
+      }
+
+      td ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        text-align: left;
+      }
+
+      td ul li {
+        margin: 4px 0;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      /* Khung nhập mật khẩu */
+      .password-box {
+        max-width: 400px;
+        margin: 120px auto;
+        background: white;
+        padding: 30px;
+        border-radius: 8px;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .password-box input {
+        width: 80%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+
+      .password-box button {
+        padding: 10px 20px;
+        background: #e60073;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      .password-box button:hover {
+        background: #c9005d;
+      }
+
+      .btn-clear {
+        margin-top: 20px;
+        padding: 10px 20px;
+        background: #dc3545;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 16px;
+        display: block;
+        margin-left: auto;
+      }
+
+      .btn-clear:hover {
+        background: #b02a37;
+      }
+
+      .error {
+        color: red;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <iframe
+      src="../HTML/nav.html"
+      frameborder="0"
+      width="100%"
+      height="170px"
+    ></iframe>
+
+    <!-- Nhập mật khẩu -->
+    <div id="loginBox" class="password-box">
+      <h3>Nhập mật khẩu quản lý</h3>
+      <input
+        type="password"
+        id="passwordInput"
+        placeholder="Nhập mật khẩu..."
+      />
+      <br />
+      <button id="btnLogin">Đăng nhập</button>
+      <p class="error" id="errMsg"></p>
+    </div>
+
+    <!-- Danh sách hóa đơn -->
+    <div class="container hidden" id="invoiceSection">
+      <h2>Danh sách hóa đơn</h2>
+      <table id="invoiceTable">
+        <thead>
+          <tr>
+            <th>Mã hóa đơn</th>
+            <th>Khách hàng</th>
+            <th>Chi tiết sản phẩm</th>
+            <th>Tổng tiền</th>
+            <th>Ngày đặt</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+
+      <button class="btn-clear" id="clearInvoices">Xóa tất cả hóa đơn</button>
+    </div>
+
+    <script>
+      const pwdadmin = "admin123"; // Mật khẩu quản lý
+
+      document.getElementById("btnLogin").addEventListener("click", () => {
+        const pass = document.getElementById("passwordInput").value.trim();
+        const errMsg = document.getElementById("errMsg");
+
+        if (pass === pwdadmin) {
+          document.getElementById("loginBox").style.display = "none";
+          document.getElementById("invoiceSection").classList.remove("hidden");
+          loadInvoices();
+        } else {
+          errMsg.textContent = "Mật khẩu không đúng, vui lòng thử lại!";
+        }
+      });
+
+      function loadInvoices() {
+        const invoices = JSON.parse(localStorage.getItem("invoices")) || [];
+        const tbody = document.querySelector("#invoiceTable tbody");
+        const btnClear = document.getElementById("clearInvoices");
+
+        if (invoices.length === 0) {
+          tbody.innerHTML = `<tr><td colspan="5">Chưa có hóa đơn nào</td></tr>`;
+        } else {
+          tbody.innerHTML = invoices
+            .map(
+              (inv) => `
+            <tr>
+              <td>${inv.id}</td>
+              <td>${inv.name}</td>
+              <td>
+                <ul>
+                  ${inv.items
+                    .map(
+                      (it) => `
+                    <li>${it.name} (${it.qty} x ${it.price.toLocaleString(
+                        "vi-VN"
+                      )}đ)</li>
+                  `
+                    )
+                    .join("")}
+                </ul>
+              </td>
+              <td><strong>${Number(inv.total).toLocaleString(
+                "vi-VN"
+              )} đ</strong></td>
+              <td>${inv.date}</td>
+            </tr>`
+            )
+            .join("");
+        }
+
+        // nút xóa tất cả hóa đơn
+        btnClear.addEventListener("click", () => {
+          if (invoices.length === 0) {
+            alert("Không có hóa đơn nào để xóa");
+            return;
+          }
+          if (confirm("có chắc chắn muốn xóa tất cả hóa đơn không?")) {
+            localStorage.removeItem("invoices");
+            alert("Đã xóa toàn bộ hóa đơn");
+            location.reload();
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>The Real Aura - Trang chủ</title>
+    <link rel="stylesheet" href="../CSS/style_product.css" />
+    <script src="../../jquery/JS/script.js" defer></script>
+  </head>
+  <body>
+    <!-- Header + Menu (giống hình) -->
+    <!-- <header>
+    <div class="top-bar">
+      <div class="logo">The Real Aura</div>
+
+      <div class="search-wrap">
+        <input id="header-search" class="search-input" type="text" placeholder="Nhập từ khóa" />
+        <button id="header-search-btn" class="search-btn">Tìm</button>
+      </div>
+    </div>
+
+    <nav class="menu-bar">
+      <ul>
+        <li><a href="../index.html">Trang chủ</a></li>
+        <li><a href="../gioithieu.html">Giới Thiệu</a></li>
+        <li class="dropdown">
+  <button class="dropbtn">
+    Tất cả sản phẩm <span class="arrow">▼</span>
+  </button>
+  <div class="dropdown-content">
+    <a href="#">Tất cả sản phẩm</a>
+    <a href="#">Sản phẩm bán chạy</a>
+    <a href="#">Sản phẩm khuyến mãi</a>
+  </div>
+</li>
+        <li><a href="..">Liên hệ</a></li>
+        <li><a href="#">Tin Tức</a></li>
+      </ul>
+    </nav>
+  </header> -->
+    <iframe
+      src="../HTML/nav.html"
+      frameborder="0"
+      width="100%"
+      height="170px"
+    ></iframe>
+    <!-- Main: danh sách sản phẩm -->
+    <main class="container">
+      <h2 class="page-title">Tất cả Sản Phẩm</h2>
+
+      <!-- Nút phân loại -->
+      <div class="category-filter">
+        <button onclick="renderProducts('all')">Tất cả</button>
+        <button onclick="renderProducts('Son môi')">Son môi</button>
+        <button onclick="renderProducts('Serum')">Serum</button>
+        <button onclick="renderProducts('Kem dưỡng')">Kem dưỡng</button>
+        <button onclick="renderProducts('Kem nền')">Kem nền</button>
+        <button onclick="renderProducts('Mặt nạ')">Mặt nạ</button>
+        <button onclick="renderProducts('Nước hoa')">Nước hoa</button>
+        <button onclick="renderProducts('Kem chống nắng')">
+          Kem chống nắng
+        </button>
+      </div>
+
+      <div id="product-list" class="product-list"></div>
+    </main>
+    <iframe
+      src="../HTML/footer.html"
+      frameborder="0"
+      width="100%"
+      height="295px"
+    ></iframe>
+  </body>
+</html>
