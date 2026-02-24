@@ -1,41 +1,50 @@
-## WELCOME TO MY PAGES
+## WELCOME TO MY PAGE
 
-### COMESTIC E-COMERCE WEBSITE BY GROUP 5 
-This project demonstrates web development, system design, and database management skills.
-#### Here is my source code for project , with my code has:
-- [Introduces](#introduces)
+### COSMETIC E-COMMERCE WEBSITE – GROUP 5
+
+This is a small academic project that demonstrates basic web development, system design, and simple data management skills.
+
+### Table of Contents
+- [Introduction](#introduction)
 - [Main Features](#main-features)
 - [Visualization](#visualization)
-- [Setting Installation](#setting-installation)
+- [Installation & Setup](#installation--setup)
 - [Author](#author)
 
-#### Introduces
-This project is an online cosmetic store system that allows customers to browse products, add items to cart, place orders, and apply promotions.
-The system also provides an admin table to manage orders and users.
+### Introduction
+This project is a simple online cosmetic store website that allows customers to browse products, add items to the shopping cart, place orders, and apply promotions.  
+The system also includes a basic admin interface to manage orders and users.
 
-#### Main Features
-Seperate into 2 side :
+### Main Features
+The system is divided into two sides:
 
-** FEATURE **
-Customer can browse product , add product in shopping cart, place an order, payment and check order history 
-Admin also can browse product , higher than that they can manage orders and users which was displayed in table 
+**Customer Side**
 
-** TECH STACK **
-- Front: HTML , CSS , Boostrap 5
-- Back: JavaScript , MongoDB file (.json)
-- IDE : Visual Code 2022
-- Version control : Git & Github
+- Browse cosmetic products  
+- Add products to the shopping cart  
+- Place orders and simulate payment  
+- View order history  
 
-#### Visualization
+**Admin Side**
 
-#### Setting Installation
+- Manage orders  
+- Manage users through a table interface  
 
-#### Author 
+### Tech Stack
+- Frontend: HTML, CSS, Bootstrap 5  
+- Backend (Logic): JavaScript  
+- Data Storage: JSON 
+- IDE: Visual Studio Code  
+- Version Control: Git & GitHub  
 
-By Group 5 
-Industry University HCMcity 
-Mayjor: Computer Science
-Role: MongoDB file , System Designer (Front-End)
+### Visualization
 
 
+### Installation & Setup
+(To be added: Clone repo and run with Live Server in VS Code)
 
+### Author
+Group 5  
+Industry University of Ho Chi Minh City (IUH)  
+Major: Computer Science  
+Role: Frontend & System Design, JSON Data Management
