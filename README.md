@@ -15,9 +15,11 @@ The system also provides an admin table to manage orders and users.
 
 #### Main Features
 Seperate into 2 side :
+
 ** FEATURE **
 Customer can browse product , add product in shopping cart, place an order, payment and check order history 
 Admin also can browse product , higher than that they can manage orders and users which was displayed in table 
+
 ** TECH STACK **
 - Front: HTML , CSS , Boostrap 5
 - Back: JavaScript , MongoDB file (.json)
@@ -29,6 +31,7 @@ Admin also can browse product , higher than that they can manage orders and user
 #### Setting Installation
 
 #### Author 
+
 By Group 5 
 Industry University HCMcity 
 Mayjor: Computer Science
