@@ -58,7 +58,6 @@ The system is divided into two sides:
 <img width="949" height="470" alt="image" src="https://github.com/user-attachments/assets/e064b015-4666-4751-aa91-ec30fddb9755" />
 <img width="641" height="379" alt="image" src="https://github.com/user-attachments/assets/8a4d477d-8ed8-4013-aa57-c44e014bf1c1" />
 <img width="808" height="380" alt="image" src="https://github.com/user-attachments/assets/88d144ea-45fe-4bbe-9491-a56cb8400f65" />
-<img width="946" height="391" alt="image" src="https://github.com/user-attachments/assets/114e0351-8579-47a9-9cd5-2cfe155ea63c" />
 
 
 ### Installation & Setup
